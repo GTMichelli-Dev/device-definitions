@@ -76,5 +76,5 @@
     "type": "USB",
     "captureCommandTemplate": "ffmpeg -f v4l2 -i {deviceName} -frames:v 1 -y",
     "notes": "Requires ffmpeg installed. Device is typically /dev/video0. List with: v4l2-ctl --list-devices"
-  }default
+  }
 ]
