@@ -1,0 +1,61 @@
+[
+  {
+    "brand": "Honeywell",
+    "model": "Vuquest / Xenon Series",
+    "type": "USB-HID",
+    "inputMode": "Keyboard Wedge",
+    "suffix": "\\r",
+    "notes": "Honeywell barcode scanners in keyboard wedge mode. Sends scanned data as keystrokes with Enter suffix."
+  },
+  {
+    "brand": "Zebra (Symbol)",
+    "model": "DS Series (DS2208, DS4608)",
+    "type": "USB-HID",
+    "inputMode": "Keyboard Wedge",
+    "suffix": "\\r",
+    "notes": "Zebra/Symbol barcode scanners. Default keyboard wedge mode with Enter suffix."
+  },
+  {
+    "brand": "Datalogic",
+    "model": "QuickScan / Gryphon",
+    "type": "USB-HID",
+    "inputMode": "Keyboard Wedge",
+    "suffix": "\\r",
+    "notes": "Datalogic handheld barcode scanners."
+  },
+  {
+    "brand": "Impinj",
+    "model": "Speedway RFID Reader",
+    "type": "TCP",
+    "defaultPort": 5084,
+    "protocol": "LLRP",
+    "notes": "Impinj RAIN RFID readers using LLRP protocol. Requires LLRP client library."
+  },
+  {
+    "brand": "Alien Technology",
+    "model": "ALR Series RFID",
+    "type": "TCP",
+    "defaultPort": 20000,
+    "protocol": "Alien Reader Protocol",
+    "notes": "Alien Technology RFID readers. Command-based TCP protocol."
+  },
+  {
+    "brand": "Generic",
+    "model": "Serial Barcode Scanner",
+    "type": "Serial",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "parity": "None",
+    "stopBits": 1,
+    "suffix": "\\r\\n",
+    "notes": "Generic RS-232 barcode scanner. Sends scanned data followed by CR+LF."
+  },
+  {
+    "brand": "Generic",
+    "model": "USB Keyboard Wedge",
+    "type": "USB-HID",
+    "inputMode": "Keyboard Wedge",
+    "suffix": "\\r",
+    "notes": "Any USB barcode scanner in keyboard wedge mode. No driver needed — appears as keyboard input."
+  }
+]

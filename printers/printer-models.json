@@ -1,0 +1,71 @@
+[
+  {
+    "brand": "Zebra",
+    "model": "ZT Series (ZT230, ZT410, ZT610)",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "ZPL",
+    "notes": "Zebra industrial label printers. Send ZPL commands via raw TCP port 9100."
+  },
+  {
+    "brand": "Zebra",
+    "model": "ZD Series (ZD420, ZD620)",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "ZPL",
+    "notes": "Zebra desktop label printers."
+  },
+  {
+    "brand": "Zebra",
+    "model": "ZD / ZT Series",
+    "type": "USB",
+    "language": "ZPL",
+    "notes": "Zebra printers connected via USB. Print through Windows spooler."
+  },
+  {
+    "brand": "Bixolon",
+    "model": "SRP-350 Series",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "ESC/POS",
+    "notes": "Bixolon thermal receipt printers."
+  },
+  {
+    "brand": "Epson",
+    "model": "TM Series (TM-T88, TM-T20)",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "ESC/POS",
+    "notes": "Epson thermal receipt printers via network."
+  },
+  {
+    "brand": "Epson",
+    "model": "TM Series",
+    "type": "USB",
+    "language": "ESC/POS",
+    "notes": "Epson thermal printers via USB. Print through Windows spooler."
+  },
+  {
+    "brand": "Star Micronics",
+    "model": "TSP100 / TSP650",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "Star Line Mode",
+    "notes": "Star Micronics thermal receipt printers."
+  },
+  {
+    "brand": "Generic",
+    "model": "Windows Printer",
+    "type": "Windows",
+    "language": "Driver",
+    "notes": "Any printer installed as a Windows printer. Uses the Windows print spooler and installed driver."
+  },
+  {
+    "brand": "Generic",
+    "model": "Raw TCP (Port 9100)",
+    "type": "TCP",
+    "defaultPort": 9100,
+    "language": "Raw",
+    "notes": "Send raw data to any network printer on port 9100."
+  }
+]

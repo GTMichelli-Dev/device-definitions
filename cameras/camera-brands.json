@@ -1,0 +1,80 @@
+[
+  {
+    "brand": "Hikvision",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/ISAPI/Streaming/channels/101/picture",
+    "notes": "Works with most Hikvision IP cameras. Channel 101 = main stream, 102 = sub stream."
+  },
+  {
+    "brand": "Dahua",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/cgi-bin/snapshot.cgi",
+    "notes": "Standard Dahua snapshot endpoint."
+  },
+  {
+    "brand": "Axis",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/axis-cgi/jpg/image.cgi",
+    "notes": "Works with Axis network cameras."
+  },
+  {
+    "brand": "Amcrest",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/cgi-bin/snapshot.cgi",
+    "notes": "Same endpoint as Dahua (Amcrest uses Dahua firmware)."
+  },
+  {
+    "brand": "Reolink",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{ip}/cgi-bin/api.cgi?cmd=Snap&channel=0&user={user}&password={password}",
+    "notes": "Reolink cameras pass credentials as query parameters."
+  },
+  {
+    "brand": "Foscam",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{ip}/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr={user}&pwd={password}",
+    "notes": "Foscam HD cameras."
+  },
+  {
+    "brand": "Vivotek",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/cgi-bin/viewer/video.jpg",
+    "notes": "Vivotek network cameras."
+  },
+  {
+    "brand": "Hanwha (Samsung)",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/stw-cgi/image.cgi?msubmenu=snapshot&action=view",
+    "notes": "Hanwha Techwin (formerly Samsung Techwin) cameras."
+  },
+  {
+    "brand": "Uniview",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/ISAPI/Streaming/channels/101/picture",
+    "notes": "Uniview uses ISAPI similar to Hikvision."
+  },
+  {
+    "brand": "ONVIF Generic",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/onvif-http/snapshot",
+    "notes": "Generic ONVIF snapshot URI. May vary by manufacturer — check your camera's ONVIF profile."
+  },
+  {
+    "brand": "Generic IP Camera",
+    "type": "IP",
+    "snapshotUrlTemplate": "http://{user}:{password}@{ip}/snapshot.jpg",
+    "notes": "Common default for many budget IP cameras."
+  },
+  {
+    "brand": "USB Camera (Windows)",
+    "type": "USB",
+    "captureCommandTemplate": "ffmpeg -f dshow -i video=\"{deviceName}\" -frames:v 1 -y",
+    "notes": "Requires ffmpeg installed. Find device name with: ffmpeg -list_devices true -f dshow -i dummy"
+  },
+  {
+    "brand": "USB Camera (Linux)",
+    "type": "USB",
+    "captureCommandTemplate": "ffmpeg -f v4l2 -i {deviceName} -frames:v 1 -y",
+    "notes": "Requires ffmpeg installed. Device is typically /dev/video0. List with: v4l2-ctl --list-devices"
+  }
+]
