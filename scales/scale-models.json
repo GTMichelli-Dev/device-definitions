@@ -130,13 +130,13 @@
   },
   {
     "brand": "Generic",
-    "model": "SMA / Toledo Protocol (TCP)",
+    "model": "SMA Protocol (TCP)",
     "type": "TCP",
     "defaultPort": 10001,
     "protocol": "Demand",
     "demandCommand": "W\\r\\n",
     "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(lb|kg)",
-    "notes": "Generic SMA/Toledo demand protocol over TCP/IP. Send 'W' command to request weight. Common default port is 10001."
+    "notes": "Generic SMA demand protocol over TCP/IP. Send 'W' command to request weight. Common default port is 10001."
   },
   {
     "brand": "Mettler Toledo",
