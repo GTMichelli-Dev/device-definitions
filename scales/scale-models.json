@@ -127,5 +127,25 @@
     "stopBits": 1,
     "weightRegex": "([+-]?\\d+\\.?\\d*)",
     "notes": "Generic continuous-output scale. Adjust regex to match your scale's output format."
+  },
+  {
+    "brand": "Generic",
+    "model": "SMA / Toledo Protocol (TCP)",
+    "type": "TCP",
+    "defaultPort": 10001,
+    "protocol": "Demand",
+    "demandCommand": "W\\r\\n",
+    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(lb|kg)",
+    "notes": "Generic SMA/Toledo demand protocol over TCP/IP. Send 'W' command to request weight. Common default port is 10001."
+  },
+  {
+    "brand": "Mettler Toledo",
+    "model": "Shared Data Services (SDS)",
+    "type": "TCP",
+    "defaultPort": 1701,
+    "protocol": "SDS",
+    "sdsSharedDataName": "Weight.Net",
+    "weightRegex": "([+-]?\\d+\\.?\\d*)",
+    "notes": "Mettler Toledo Shared Data Services (SDS) protocol. Connects to InTouch or IND terminals running SDS server on port 1701. Subscribe to shared data items like 'Weight.Net', 'Weight.Gross', 'Weight.Tare'. Requires MT-SICS or SDS client implementation."
   }
 ]
