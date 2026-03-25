@@ -72,9 +72,9 @@
     "notes": "Requires ffmpeg installed. Find device name with: ffmpeg -list_devices true -f dshow -i dummy"
   },
   {
-    "brand": "USB Camera (Linux)",
+    "brand": "Shitty Camera (Linux)",
     "type": "USB",
     "captureCommandTemplate": "ffmpeg -f v4l2 -i {deviceName} -frames:v 1 -y",
     "notes": "Requires ffmpeg installed. Device is typically /dev/video0. List with: v4l2-ctl --list-devices"
-  }
+  }default
 ]
