@@ -34,7 +34,7 @@ Templates use `{placeholder}` syntax. Common placeholders:
 Applications fetch the raw JSON from this repo:
 
 ```
-https://raw.githubusercontent.com/SeanSolleder/device-definitions/main/cameras/camera-brands.json
+https://raw.githubusercontent.com/SeanSolleder/device-definitions/main/cameras/camera-snapshot.json
 ```
 
 If the remote fetch fails, applications should fall back to a bundled local copy.
@@ -50,8 +50,8 @@ To add a new device:
 
 ## Categories
 
-### Cameras (`cameras/camera-brands.json`)
-IP camera snapshot URLs and USB camera capture commands. Used for ticket photo capture at weigh stations.
+### Cameras (`cameras/camera-snapshot.json`)
+Image capture definitions for IP and USB cameras. Contains snapshot URL templates and capture commands used to take pictures (e.g. ticket photos at weigh stations).
 
 ### Scales (`scales/scale-models.json`)
 Serial and TCP scale communication profiles including data formats, baud rates, and command strings.
