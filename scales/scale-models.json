@@ -39,17 +39,42 @@
   },
   {
     "brand": "Avery Weigh-Tronix",
-    "model": "ZM Series",
+    "model": "ZM-301 / ZM Series",
+    "type": "TCP",
+    "defaultPort": 10001,
+    "protocol": "SMA",
+    "demandCommand": "W\\r\\n",
+    "responseFormat": "SMA 8.1.2: [echo/pad][status][range][gross/net][motion][future][weight][unit]",
+    "responseExample": " O1GM     80640lb",
+    "statusChars": {
+      " ": "Normal",
+      "Z": "Center of Zero",
+      "O": "Over Capacity",
+      "U": "Under Capacity",
+      "E": "Zero Error",
+      "T": "Tare Error"
+    },
+    "motionChar": "M",
+    "stableChar": " ",
+    "grossNetChars": {
+      "G": "Gross",
+      "N": "Net",
+      "T": "Tare"
+    },
+    "notes": "Avery Weigh-Tronix ZM-301 and ZM series indicators. Uses SMA 8.1.2 protocol over TCP. Response may include command echo ('W') or space before status byte. Parser should locate header by pattern: [status][digit][G/N/T]. Default port 10001 via serial-to-Ethernet converter."
+  },
+  {
+    "brand": "Avery Weigh-Tronix",
+    "model": "ZM-301 / ZM Series",
     "type": "Serial",
-    "protocol": "Continuous",
+    "protocol": "SMA",
     "baudRate": 9600,
-    "dataBits": 8,
+    "dataBits": 7,
     "parity": "Even",
     "stopBits": 1,
-    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(lb|kg)",
-    "printCommand": "",
-    "zeroCommand": "",
-    "notes": "Avery Weigh-Tronix ZM series indicators. Check parity setting on your unit."
+    "demandCommand": "W\\r\\n",
+    "responseFormat": "SMA 8.1.2",
+    "notes": "Avery Weigh-Tronix ZM series via RS-232 serial. Same SMA protocol as TCP variant. Check parity setting on your unit (default Even, 7 data bits)."
   },
   {
     "brand": "Mettler Toledo",
@@ -107,14 +132,17 @@
     "brand": "Generic",
     "model": "SMA / Toledo Protocol",
     "type": "Serial",
-    "protocol": "Demand",
+    "protocol": "SMA",
     "baudRate": 9600,
     "dataBits": 7,
     "parity": "Even",
     "stopBits": 1,
     "demandCommand": "W\\r\\n",
-    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(lb|kg)",
-    "notes": "Generic demand-mode scale using SMA/Toledo protocol. Send 'W' command to request weight."
+    "responseFormat": "SMA 8.1.2: LF + [echo/pad] + status + range + gross/net + motion + future + weight + unit + CR",
+    "statusChars": { " ": "Normal", "Z": "Center of Zero", "O": "Over Capacity", "U": "Under Capacity", "E": "Zero Error", "T": "Tare Error" },
+    "motionChar": "M",
+    "grossNetChars": { "G": "Gross", "N": "Net", "T": "Tare" },
+    "notes": "Generic SMA 8.1.2 demand-mode protocol. Send 'W' to request weight. Response includes binary status byte, range, gross/net, motion flags. Parser should find header by pattern [status][digit][G/N/T] to handle optional command echo."
   },
   {
     "brand": "Generic",
@@ -133,10 +161,13 @@
     "model": "SMA Protocol (TCP)",
     "type": "TCP",
     "defaultPort": 10001,
-    "protocol": "Demand",
+    "protocol": "SMA",
     "demandCommand": "W\\r\\n",
-    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(lb|kg)",
-    "notes": "Generic SMA demand protocol over TCP/IP. Send 'W' command to request weight. Common default port is 10001."
+    "responseFormat": "SMA 8.1.2",
+    "statusChars": { " ": "Normal", "Z": "Center of Zero", "O": "Over Capacity", "U": "Under Capacity", "E": "Zero Error", "T": "Tare Error" },
+    "motionChar": "M",
+    "grossNetChars": { "G": "Gross", "N": "Net", "T": "Tare" },
+    "notes": "Generic SMA 8.1.2 demand protocol over TCP/IP. Send 'W' to request weight. Common default port is 10001 via serial-to-Ethernet converter."
   },
   {
     "brand": "Mettler Toledo",
