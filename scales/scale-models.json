@@ -170,6 +170,21 @@
     "notes": "Generic SMA 8.1.2 demand protocol over TCP/IP. Send 'W' to request weight. Common default port is 10001 via serial-to-Ethernet converter."
   },
   {
+  "brand": "Cardinal",
+  "model": "225 NAV / Navigator",
+  "type": "Serial",
+  "protocol": "SMA",
+  "baudRate": 9600,
+  "dataBits": 8,
+  "parity": "None",
+  "stopBits": 1,
+  "demandCommand": "\ngross\r",
+  "grossOnly": true,
+  "responseFormat": "SMA: LF + status + range + gross/net/tare + motion + custom + weight + units + CR",
+  "weightRegex": "\\n(.)(\\d)(G)(.)(.)([+-]?\\d+\\.\\d+)(lb|kg|oz|ton|t|g)\\r",
+  "notes": "Cardinal 225 NAV SMA demand output. Send LF W CR. Parser should only accept G mode for gross weight."
+},
+  {
     "brand": "Mettler Toledo",
     "model": "Shared Data Services (SDS)",
     "type": "TCP",
