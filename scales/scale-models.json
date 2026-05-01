@@ -185,6 +185,20 @@
   "notes": "Cardinal 225 NAV SMA demand output. Send LF W CR. Parser should only accept G mode for gross weight."
 },
   {
+    "brand": "Cardinal",
+    "model": "225 Navigator (IQ355)",
+    "type": "Serial",
+    "protocol": "IQ355",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "parity": "None",
+    "stopBits": 1,
+    "weightRegex": "\\s*(\\d+)\\s+(LB|KG)\\s+([GNT])(?:\\s+(MO))?",
+    "printCommand": "P",
+    "zeroCommand": "Z",
+    "notes": "Cardinal 225 Navigator continuous serial stream in IQ355 format. Each frame is right-justified weight + unit (LB/KG) + mode (G/N/T) + optional motion flag 'MO'. Default 9600,8,N,1. Set ConnectionType=Serial and Protocol=IQ355 on the scale config. SerialPortName examples: 'COM1' (Windows), '/dev/ttyUSB0' (Linux)."
+  },
+  {
     "brand": "Mettler Toledo",
     "model": "Shared Data Services (SDS)",
     "type": "TCP",
