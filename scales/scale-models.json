@@ -173,7 +173,6 @@
   "brand": "Cardinal",
   "model": "225 NAV / Navigator (Gross CMD)",
   "type": "Serial",
-  "protocol": "SMA",
   "baudRate": 9600,
   "dataBits": 8,
   "parity": "None",
