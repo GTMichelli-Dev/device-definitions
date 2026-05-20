@@ -139,9 +139,20 @@
     "stopBits": 1,
     "demandCommand": "W\\r\\n",
     "responseFormat": "SMA 8.1.2: LF + [echo/pad] + status + range + gross/net + motion + future + weight + unit + CR",
-    "statusChars": { " ": "Normal", "Z": "Center of Zero", "O": "Over Capacity", "U": "Under Capacity", "E": "Zero Error", "T": "Tare Error" },
+    "statusChars": {
+      " ": "Normal",
+      "Z": "Center of Zero",
+      "O": "Over Capacity",
+      "U": "Under Capacity",
+      "E": "Zero Error",
+      "T": "Tare Error"
+    },
     "motionChar": "M",
-    "grossNetChars": { "G": "Gross", "N": "Net", "T": "Tare" },
+    "grossNetChars": {
+      "G": "Gross",
+      "N": "Net",
+      "T": "Tare"
+    },
     "notes": "Generic SMA 8.1.2 demand-mode protocol. Send 'W' to request weight. Response includes binary status byte, range, gross/net, motion flags. Parser should find header by pattern [status][digit][G/N/T] to handle optional command echo."
   },
   {
@@ -164,9 +175,20 @@
     "protocol": "SMA",
     "demandCommand": "W\\r\\n",
     "responseFormat": "SMA 8.1.2",
-    "statusChars": { " ": "Normal", "Z": "Center of Zero", "O": "Over Capacity", "U": "Under Capacity", "E": "Zero Error", "T": "Tare Error" },
+    "statusChars": {
+      " ": "Normal",
+      "Z": "Center of Zero",
+      "O": "Over Capacity",
+      "U": "Under Capacity",
+      "E": "Zero Error",
+      "T": "Tare Error"
+    },
     "motionChar": "M",
-    "grossNetChars": { "G": "Gross", "N": "Net", "T": "Tare" },
+    "grossNetChars": {
+      "G": "Gross",
+      "N": "Net",
+      "T": "Tare"
+    },
     "notes": "Generic SMA 8.1.2 demand protocol over TCP/IP. Send 'W' to request weight. Common default port is 10001 via serial-to-Ethernet converter."
   },
   {
@@ -200,22 +222,22 @@
     "notes": "Cardinal 225 Navigator continuous serial stream in IQ355 format. Each frame is right-justified weight + unit (LB/KG) + mode (G/N/T) + optional motion flag 'MO'. Default 9600,8,N,1. Set ConnectionType=Serial and Protocol=IQ355 on the scale config. SerialPortName examples: 'COM1' (Windows), '/dev/ttyUSB0' (Linux)."
   },
   {
-  "brand": "Condec",
-  "model": "UMC / Continuous",
-  "type": "Serial",
-  "protocol": "Continuous",
-  "baudRate": 9600,
-  "dataBits": 8,
-  "parity": "None",
-  "stopBits": 1,
-  "demandCommand": "",
-  "responseFormat": "<SP padding><weight digits><unit><CR><LF>",
-  "responseExample": "  125222LB",
-  "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(LB|KG|lb|kg)",
-  "printCommand": "P",
-  "zeroCommand": "Z",
-  "notes": "Condec digital weight indicators (e.g. UMC600 series). Default continuous serial stream: space-padded weight digits followed by 2-char unit (LB/KG), terminated with CR/LF. No status byte in basic mode. Default 9600,8,N,1 — verify on your unit; some Condec models default to 7,E,1. The current parser is failing because it expects a decimal point or whitespace before the unit; this regex tolerates both integer and decimal weights with the unit directly adjacent."
-},
+    "brand": "Condec",
+    "model": "UMC / Continuous",
+    "type": "Serial",
+    "protocol": "Continuous",
+    "baudRate": 9600,
+    "dataBits": 8,
+    "parity": "None",
+    "stopBits": 1,
+    "demandCommand": "",
+    "responseFormat": "<SP padding><weight digits><unit><optional trailing SP/CR/LF>",
+    "responseExample": "   12000LG ",
+    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(LB|KG|LG|lb|kg|lg)",
+    "printCommand": "P",
+    "zeroCommand": "Z",
+    "notes": "Condec digital weight indicators (e.g. UMC600 series). Continuous serial stream: space-padded weight digits followed by a 2-char unit code, optionally followed by a space and/or CR/LF. Unit codes observed: LB (pounds net), KG (kilograms), LG (pounds gross). Frames may arrive without CR/LF terminator on some firmware revs, so the parser does not rely on line boundaries. Default 9600,8,N,1 — verify on your unit; some Condec models default to 7,E,1."
+  },
   {
     "brand": "Mettler Toledo",
     "model": "Shared Data Services (SDS)",
