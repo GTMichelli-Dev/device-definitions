@@ -231,12 +231,12 @@
     "parity": "None",
     "stopBits": 1,
     "demandCommand": "",
-    "responseFormat": "<SP padding><weight digits><unit><optional trailing SP/CR/LF>",
+    "responseFormat": "<STX><POL><wwwwwww><UNIT><G/N><S><TERM>  per Rice Lake IQ plus 355 EDP/PRN stream; STX often suppressed in serial captures",
     "responseExample": "   12000LG ",
-    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*(LB|KG|LG|lb|kg|lg)",
+    "weightRegex": "\\s*([+-]?\\d+\\.?\\d*)\\s*([LKTGO ])([GN])",
     "printCommand": "P",
     "zeroCommand": "Z",
-    "notes": "Condec digital weight indicators (e.g. UMC600 series). Continuous serial stream: space-padded weight digits followed by a 2-char unit code, optionally followed by a space and/or CR/LF. Unit codes observed: LB (pounds net), KG (kilograms), LG (pounds gross). Frames may arrive without CR/LF terminator on some firmware revs, so the parser does not rely on line boundaries. Default 9600,8,N,1 — verify on your unit; some Condec models default to 7,E,1."
+    "notes": "Rice Lake IQ plus 355 EDP/PRN continuous output stream — also used by Condec UMC indicators (e.g. UMC600 series) and other relabels of the same OEM board. Each frame is <STX><POL><wwwwwww><UNIT><G/N><S><TERM>, where POL is one of \"<SP>\" (positive), \"-\" (negative), \"^\" (overload, weight = ^^^^^^^), \"]\" (underrange, weight = ]]]]]]]); wwwwwww is 7-digit right-justified weight with leading-space suppression; UNIT is L=lb, K=kg, T=ton, G=g, O=oz, SP=none; G/N is G=gross or N=net; S is SP=valid, I=invalid, M=motion, O=over/under range; TERM is CR or CRLF. The regex captures: (1) signed weight, (2) unit char, (3) gross/net char. STX (0x02) at frame start is optional in practice — some firmware or USB-serial converters strip it before delivery. Default 9600,8,N,1; a few older Condec models default to 7,E,1. Set STREAM=EDP or STREAM=PRN in the indicator's SERIAL menu."
   },
   {
     "brand": "Mettler Toledo",
